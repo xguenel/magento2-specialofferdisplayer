@@ -1,5 +1,5 @@
 {
-    "name": "dnd/module-special-offer-displayer",
+    "name": "xguenel/module-special-offer-displayer",
     "version": "100.0.0",
     "description": "Display special offer in banner under menu on category pages",
     "type": "magento2-module",
