@@ -143,6 +143,9 @@ class OfferRepository implements OfferRepositoryInterface
             return [];
         }
 
+        if ($maxOfferToDisplay === 0) {
+            $maxOfferToDisplay = 10;
+        }
         $today = date('Y-m-d');
 
         $offers = [];
@@ -151,7 +154,9 @@ class OfferRepository implements OfferRepositoryInterface
             ->from('dnd_special_offer_displayer', ['offer_id', 'category_list'])
             ->where('starting_display_at <= "' . $today . '"')
             ->where('ending_display_at >= "' . $today . '"')
-            ->where('category_list like "%' . $categoryId . '%"');
+            ->where('category_list like "%' . $categoryId . '%"')
+            ->order('updated_at DESC')
+        ;
 
         $offerIds = $connection->fetchAll($offerIds);
 
@@ -179,3 +184,4 @@ class OfferRepository implements OfferRepositoryInterface
         return in_array($categoryId, $categoryIds);
     }
 }
+
