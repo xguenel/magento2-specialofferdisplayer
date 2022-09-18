@@ -1,0 +1,30 @@
+{
+    "name": "dnd/module-special-offer-displayer",
+    "version": "100.0.0",
+    "description": "Display special offer in banner under menu on category pages",
+    "type": "magento2-module",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "magento/framework": "^103.0",
+        "ext-json": "*"
+    }
+    ,
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Dnd\\SpecialOfferDisplayer\\": ""
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/xguenel/magento2-specialofferdisplayer"
+        }
+    ],
+    "minimum-stability": "stable"
+}

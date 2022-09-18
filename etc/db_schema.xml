@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<!--
+/**
+ * @package   Dnd\Offers\etc
+ * @author    X
+ * @copyright 1979 - present
+ * @license   See LICENSE bundled with this library for license details.
+ * @link      https://www.ocarina-of-time.fr/
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="dnd_special_offer_displayer" resource="default" engine="innodb" comment="Special Offer Displayer table">
+        <column xsi:type="int" name="offer_id"
+                padding="10" unsigned="true"
+                nullable="false"
+                identity="true"
+                comment="Offer ID"/>
+        <column xsi:type="varchar"
+                name="offer_label"
+                nullable="false"
+                length="255"
+                comment="Offer label"/>
+        <column xsi:type="text"
+                name="content"
+                nullable="false"
+                comment="Offer content text"/>
+        <column xsi:type="text"
+                name="image_file_name"
+                nullable="true"
+                comment="Image file name"/>
+        <column xsi:type="text"
+                name="redirection_link"
+                nullable="true"
+                comment="Redirection link"/>
+        <column xsi:type="text"
+                name="category_list"
+                nullable="true"
+                comment="Category list"/>
+        <column xsi:type="datetime"
+                name="starting_display_at"
+                on_update="false"
+                nullable="true"
+                comment="Starting display date"/>
+        <column xsi:type="datetime" name="ending_display_at"
+                on_update="false"
+                nullable="true"
+                comment="Ending display date"/>
+        <column xsi:type="timestamp" name="created_at"
+                on_update="false"
+                nullable="false"
+                default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at"
+                on_update="true"
+                nullable="false"
+                default="CURRENT_TIMESTAMP"
+                comment="Updated At"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="offer_id"/>
+        </constraint>
+    </table>
+</schema>

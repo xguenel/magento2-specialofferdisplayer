@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Dnd\SpecialOfferDisplayer\Api\Data\OfferInterface"
+                type="Dnd\SpecialOfferDisplayer\Model\Offer"/>
+    <preference for="Dnd\SpecialOfferDisplayer\Api\OfferRepositoryInterface"
+                type="Dnd\SpecialOfferDisplayer\Model\OfferRepository"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dnd_special_offer_displayer_offer_listing_data_source" xsi:type="string">OfferGridDataSource</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="OfferGridDataSource"  type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">dnd_special_offer_displayer</argument>
+            <argument name="resourceModel" xsi:type="string">Dnd\SpecialOfferDisplayer\Model\ResourceModel\Offer</argument>
+        </arguments>
+    </virtualType>
+
+
+    <type name="Dnd\SpecialOfferDisplayer\Model\OfferRepository">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Dnd\SpecialOfferDisplayer\Model\ImageUploader</argument>
+        </arguments>
+    </type>
+
+    <type name="Dnd\SpecialOfferDisplayer\Controller\Adminhtml\Offer\ImageUploader">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Dnd\SpecialOfferDisplayer\Model\ImageUploader</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Dnd\SpecialOfferDisplayer\Model\ImageUploader" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">dnd_specialofferdisplayer/tmp/offer</argument>
+            <argument name="basePath" xsi:type="string">dnd_specialofferdisplayer/offer</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

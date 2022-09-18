@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<!--
+/**
+ * @package   Dnd\SpecialOfferDisplayer\etc\adminhtml
+ * @author    X
+ * @copyright 1979 - present
+ * @license   See LICENSE bundled with this library for license details.
+ * @link      https://www.adventure-of-link.fr/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dnd_SpecialOfferDisplayer::menu"
+             title="Special Offer Displayer"
+             translate="title"
+             module="Dnd_SpecialOfferDisplayer"
+             sortOrder="10"
+             resource="Dnd_SpecialOfferDisplayer::listing"
+             dependsOnConfig="dnd_special_offer_displayer/configuration/enabled"/>
+        <add id="Dnd_SpecialOfferDisplayer::listing"
+             title="Offer management"
+             translate="title"
+             module="Dnd_SpecialOfferDisplayer"
+             parent="Dnd_SpecialOfferDisplayer::menu"
+             sortOrder="10"
+             resource="Dnd_SpecialOfferDisplayer::listing"
+             action="dnd_special_offer_displayer/offer/index"/>
+        <add id="Dnd_SpecialOfferDisplayer::configuration"
+             title="Configuration"
+             translate="title"
+             module="Dnd_SpecialOfferDisplayer"
+             parent="Dnd_SpecialOfferDisplayer::menu"
+             sortOrder="20"
+             resource="Dnd_SpecialOfferDisplayer::configuration"
+             action="admin/system_config/edit/section/dnd_special_offer_displayer"/>
+
+    </menu>
+</config>

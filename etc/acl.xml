@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Dnd_SpecialOfferDisplayer::menu" title="Offers" translate="title" sortOrder="10">
+                    <resource id="Dnd_SpecialOfferDisplayer::content" title="Settings" translate="title" sortOrder="20">
+                        <resource id="Dnd_SpecialOfferDisplayer::listing" title="Offer grid listing" translate="title"/>
+                        <resource id="Dnd_SpecialOfferDisplayer::edit" title="Edit offer" translate="title"/>
+                        <resource id="Dnd_SpecialOfferDisplayer::save" title="Save offer" translate="title"/>
+                        <resource id="Dnd_SpecialOfferDisplayer::delete" title="Delete offer" translate="title"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

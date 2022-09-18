@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <dnd_special_offer_displayer>
+            <configuration>
+                <enabled>1</enabled>
+                <max_offer_displayed>3</max_offer_displayed>
+                <sliding_delay>5</sliding_delay>
+            </configuration>
+        </dnd_special_offer_displayer>
+    </default>
+</config>

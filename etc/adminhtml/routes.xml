@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package   Dnd\SpecialOfferDisplayer\etc\adminhtml
+ * @author    X
+ * @copyright 1979 - present
+ * @license   See LICENSE bundled with this library for license details.
+ * @link      https://www.the-legend-of-zelda.fr/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="dnd_special_offer_displayer" frontName="dnd_special_offer_displayer">
+            <module name="Dnd_SpecialOfferDisplayer"/>
+        </route>
+    </router>
+</config>

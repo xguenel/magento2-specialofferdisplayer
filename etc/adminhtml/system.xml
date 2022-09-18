@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="agencednd" translate="label" sortOrder="10">
+            <label>Agence DnD Extensions</label>
+        </tab>
+        <section id="dnd_special_offer_displayer" sortOrder="10" type="text" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>DnD - Offers</label>
+            <tab>agencednd</tab>
+            <resource>Dnd_SpecialOfferDisplayer::offers_config</resource>
+            <group id="configuration" translate="label" sortOrder="10" showInDefault="1">
+                <label>Configuration</label>
+                <field id="enabled" translate="label" sortOrder="10" type="select" showInDefault="1">
+                    <label>Enable module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="max_offer_displayed" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Max amount of offers displayed at once</label>
+                    <comment><![CDATA[<em>0 for no limit &ndash; Maximum displayed in any case to avoid performance issues : 10</em>]]></comment>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="sliding_delay" translate="label" sortOrder="30" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sliding delay in seconds</label>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>
