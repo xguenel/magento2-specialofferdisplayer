@@ -15,31 +15,34 @@ class DataProvider extends AbstractDataProvider
     private OfferResource $offerResource;
 
     /**
-     * @param string $name
-     * @param string $primaryFieldName
-     * @param string $requestFieldName
-     * @param OfferResource $offerResource
-     * @param OfferCollectionFactory $offerCollectionFactory
-     * @param StoreManagerInterface $storeManager
-     * @param array $meta
-     * @param array $data
+     * DataProvider constructor.
+     * @param OfferResource             $offerResource
+     * @param OfferCollectionFactory    $offerCollectionFactory
+     * @param StoreManagerInterface     $storeManager
+     * @param Json                      $json
+     * @param string                    $name
+     * @param string                    $primaryFieldName
+     * @param string                    $requestFieldName
+     * @param array                     $meta
+     * @param array                     $data
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function __construct(
-        OfferResource $offerResource,
-        OfferCollectionFactory $offerCollectionFactory,
-        StoreManagerInterface $storeManager,
-        Json $json,
-        $name,
-        $primaryFieldName,
-        $requestFieldName,
-        array $meta = [],
-        array $data = []
+        OfferResource           $offerResource,
+        OfferCollectionFactory  $offerCollectionFactory,
+        StoreManagerInterface   $storeManager,
+        Json                    $json,
+        string                  $name,
+        string                  $primaryFieldName,
+        string                  $requestFieldName,
+        array                   $meta = [],
+        array                   $data = []
     ) {
         $this->offerResource = $offerResource;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
 
-        $this->collection = $offerCollectionFactory->create();
-        $this->mediaUrl = $storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
+        $this->collection   = $offerCollectionFactory->create();
+        $this->mediaUrl     = $storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
     }
 
     /**
