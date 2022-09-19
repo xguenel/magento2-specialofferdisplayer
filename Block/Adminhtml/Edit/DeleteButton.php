@@ -18,7 +18,7 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
                 'label' => __('Delete Offer'),
                 'class' => 'delete',
                 'on_click' => 'deleteConfirm(\''
-                    . __('Are you sure you want to delete this offer ?')
+                    . __('Are you sure you want to delete this offer?')
                     . '\', \'' . $this->getDeleteUrl() . '\')',
                 'sort_order' => 20,
             ];
